@@ -1,6 +1,15 @@
 #include "pch.h"
+#include "..\SimJudge\SimJudge.cpp"
 
-TEST(TestCaseName, TestName) {
-  EXPECT_EQ(1, 1);
-  EXPECT_TRUE(true);
+using namespace std;
+
+TEST(TestSimJudge, TestSameChar) {
+	SimJudge judge{};
+	string a = "ABCD";
+	string b = "DCBA";
+
+	int expected = 40;
+	int actual = judge.calPointMatchingChar(a, b);
+
+	EXPECT_EQ(expected, actual);
 }
