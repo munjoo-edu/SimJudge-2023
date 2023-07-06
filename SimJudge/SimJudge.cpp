@@ -5,18 +5,8 @@ using namespace std;
 class SimJudge
 {
 public:
-
-	int calPointMatchingChar(const std::string& a, const std::string& b)
+	int calcPointMatchPartial(string contA, string contB)
 	{
-		string contA = contractMessage(a);
-		string contB = contractMessage(b);
-
-		if (!isUpperCase(a + b))
-			throw invalid_argument("Wrong char is used.");
-
-		if (contA == contB)
-			return MATCHING_CHAR_JUDGE_MAX_POINT;
-
 		int idxA = 0, idxB = 0, point = 0;
 
 		while (idxA < contA.length() && idxB < contB.length())
@@ -35,6 +25,20 @@ public:
 		}
 
 		return (double)point / contA.length() * MATCHING_CHAR_JUDGE_MAX_POINT;
+	}
+
+	int calPointMatchingChar(const std::string& a, const std::string& b)
+	{
+		string contA = contractMessage(a);
+		string contB = contractMessage(b);
+
+		if (!isUpperCase(a + b))
+			throw invalid_argument("Wrong char is used.");
+
+		if (contA == contB)
+			return MATCHING_CHAR_JUDGE_MAX_POINT;
+
+		return calcPointMatchPartial(contA, contB);
 	}
 
 	bool isUpperCase(string tar)
