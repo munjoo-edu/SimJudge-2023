@@ -1,5 +1,5 @@
 #include <string>
-#include <vector>
+#include <stdexcept>
 using namespace std;
 
 class SimJudge
@@ -11,8 +11,8 @@ public:
 		string contA = contractMessage(a);
 		string contB = contractMessage(b);
 
-		if (!isUpperCase(contA + contB))
-			return 0;
+		if (!isUpperCase(a + b))
+			throw invalid_argument("Wrong char is used.");
 
 		if (contA == contB)
 			return MATCHING_CHAR_JUDGE_MAX_POINT;
@@ -23,7 +23,8 @@ public:
 	bool isUpperCase(string tar)
 	{
 		for (auto c : tar)
-			if (c < 'A' || c>'Z') return false;
+			if (c < 'A' || c > 'Z')
+				return false;
 
 		return true;
 	}
