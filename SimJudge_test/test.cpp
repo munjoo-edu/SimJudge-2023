@@ -2,7 +2,7 @@
 #include "..\SimJudge\SimJudge.cpp"
 
 using namespace std;
-#if 0
+
 TEST(TestSimJudge, TestSameChar) {
 	SimJudge judge{};
 	string a = "ABCD";
@@ -24,11 +24,23 @@ TEST(TestSimJudge, TestDifferChar) {
 
 	EXPECT_EQ(expected, actual);
 }
-#endif
+
 TEST(TestSimJudge, TestWrongChar) {
 	SimJudge judge{};
 	string a = "aBCD";
 	string b = "EFGH";
 	
 	EXPECT_THROW(judge.calPointMatchingChar(a, b), invalid_argument);
+}
+
+
+TEST(TestSimJudge, TestMatchingPartial) {
+	SimJudge judge{};
+	string a = "ABCD";
+	string b = "ABAA";
+
+	int expected = 20;
+	int actual = judge.calPointMatchingChar(a, b);
+
+	EXPECT_EQ(expected, actual);
 }

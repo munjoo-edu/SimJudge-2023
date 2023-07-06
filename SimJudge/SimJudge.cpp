@@ -17,7 +17,24 @@ public:
 		if (contA == contB)
 			return MATCHING_CHAR_JUDGE_MAX_POINT;
 
-		return 0;
+		int idxA = 0, idxB = 0, point = 0;
+
+		while (idxA < contA.length() && idxB < contB.length())
+		{
+			if (contA[idxA] == contB[idxB])
+			{
+				point++;
+				idxA++; idxB++;
+			} else if (contA[idxA] > contB[idxB])
+			{
+				idxB++;
+			} else
+			{
+				idxA++;
+			}
+		}
+
+		return (double)point / contA.length() * MATCHING_CHAR_JUDGE_MAX_POINT;
 	}
 
 	bool isUpperCase(string tar)
@@ -37,7 +54,10 @@ public:
 			for (auto tar_char : tar_string)
 			{
 				if (tar_char == look_for)
+				{
 					cont += look_for;
+					break;
+				}
 			}
 		}
 
