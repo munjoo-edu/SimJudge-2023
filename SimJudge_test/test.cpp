@@ -26,23 +26,23 @@ TEST(TestSimJudge, TestDiffDouble) {
 	EXPECT_EQ(expected, actual);
 }
 
-TEST(TestSimJudge, TestA2B4) {
+TEST(TestSimJudge, TestA3B4) {
 	SimJudge judge{};
-	string a = "ab";
+	string a = "abc";
 	string b = "defg";
 
-	int expected = 30;
+	int expected = 20;
 	int actual = judge.calPointLength(a, b);
 
 	EXPECT_EQ(expected, actual);
 }
 
-TEST(TestSimJudge, TestA4B2) {
+TEST(TestSimJudge, TestA4B3) {
 	SimJudge judge{};
 	string a = "defg";
-	string b = "ab";
+	string b = "abc";
 
-	int expected = 30;
+	int expected = 20;
 	int actual = judge.calPointLength(a, b);
 
 	EXPECT_EQ(expected, actual);

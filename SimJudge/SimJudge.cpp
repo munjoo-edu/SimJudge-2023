@@ -23,8 +23,8 @@ public:
 	int calPointPartial(int a_len, int b_len)
 	{
 		if (a_len > b_len)
-			return int((double)(a_len - b_len) / a_len * LENGTH_JUDGE_MAX_POINT);
-		return int((double)(b_len - a_len) / b_len * LENGTH_JUDGE_MAX_POINT);
+			return int((double)(a_len - b_len) / b_len * LENGTH_JUDGE_MAX_POINT);
+		return int((double)(b_len - a_len) / a_len * LENGTH_JUDGE_MAX_POINT);
 	}
 
 	const int LENGTH_JUDGE_MAX_POINT = 60;
