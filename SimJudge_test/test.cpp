@@ -13,3 +13,4 @@ TEST(TestSimJudge, TestSameChar) {
 
 	EXPECT_EQ(expected, actual);
 }
+
