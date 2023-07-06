@@ -15,6 +15,17 @@ TEST(TestSimJudge, TestSameLen) {
 	EXPECT_EQ(expected, actual);
 }
 
+TEST(TestSimJudge, TestDiffDouble) {
+	SimJudge judge{};
+	string a = "abcd";
+	string b = "ef";
+
+	int expected = 0;
+	int actual = judge.calPointLength(a, b);
+
+	EXPECT_EQ(expected, actual);
+}
+
 TEST(TestSimJudge, TestA2B4) {
 	SimJudge judge{};
 	string a = "ab";
