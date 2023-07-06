@@ -11,10 +11,21 @@ public:
 		string contA = contractMessage(a);
 		string contB = contractMessage(b);
 
+		if (!isUpperCase(contA + contB))
+			return 0;
+
 		if (contA == contB)
 			return MATCHING_CHAR_JUDGE_MAX_POINT;
 
 		return 0;
+	}
+
+	bool isUpperCase(string tar)
+	{
+		for (auto c : tar)
+			if (c < 'A' || c>'Z') return false;
+
+		return true;
 	}
 
 	string contractMessage(const std::string& tar_string)

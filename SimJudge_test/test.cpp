@@ -24,3 +24,14 @@ TEST(TestSimJudge, TestDifferChar) {
 
 	EXPECT_EQ(expected, actual);
 }
+
+TEST(TestSimJudge, TestWrongChar) {
+	SimJudge judge{};
+	string a = "aBCD";
+	string b = "EFGH";
+
+	int expected = 0;
+	int actual = judge.calPointMatchingChar(a, b);
+
+	EXPECT_EQ(expected, actual);
+}
